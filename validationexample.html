@@ -1,0 +1,20 @@
+<!--/* Imports */-->
+<sly data-sly-use.model="${'com.aem.community.core.models.ValidationExampleModel'}" />
+
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" 
+   data-sly-call="${clientlib.all @ categories='customeerror'}"/>
+
+
+<!--/* Validation */-->
+<sly data-sly-use.template="validationTemplate.html"
+   data-sly-call="${template.validation @ validation=model.validation, placeholder='cq-gadget-placeholder'}" />
+
+   
+<!--/* HTML */-->
+<section>
+   <div>
+      <sly data-sly-test="${model.coverImage.asset}"
+         data-sly-resource="${model.coverImage.imageResource.path @ resourceType='AEMMaven13/components/content/image', decorationTagName='div'}" />
+   </div>
+</section>
